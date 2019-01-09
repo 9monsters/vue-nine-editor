@@ -1,13 +1,39 @@
 {
   "name": "nine-editor",
   "version": "0.1.0",
-  "private": true,
+  "description": "nine editor base on quill",
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/NineSwordsMonster/nine-editor/issues"
+  },
+  "homepage": "https://github.com/NineSwordsMonster/nine-editor#readme",
+  "main": "dist/nine-editor.js",
+  "unpkg": "dist/nine-editor.js",
+  "jsnext:main": "dist/nine-editor.js",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "keywords": [
+    "nine-editor",
+    "vue quill",
+    "vue text editor",
+    "vue rich text editor",
+    "vue editor"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NineSwordsMonster/nine-editor.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build --target lib --name nine-editor --dest dist src/index.js",
+    "lint": "vue-cli-service lint",
+    "publish": "git push && git push --tags && npm publish"
   },
   "dependencies": {
+    "lodash.merge": "^4.6.1",
+    "quill": "^1.3.6",
     "vue": "^2.5.21"
   },
   "devDependencies": {
