@@ -27,7 +27,7 @@
   },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --target lib --name nine-editor --dest dist src/index.js",
+    "build": "vue-cli-service build --target wc --name nine-editor --dest dist src/index.js",
     "lint": "vue-cli-service lint",
     "publish": "git push && git push --tags && npm publish"
   },
