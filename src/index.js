@@ -1,15 +1,15 @@
 import _Quill from 'quill'
-import quillEditor from './Editor.vue'
+import nineEditor from './Editor.vue'
 
 const Quill = window.Quill || _Quill
 const install = (Vue, globalOptions) => {
   if (globalOptions) {
-    quillEditor.props.globalOptions.default = () => globalOptions
+    nineEditor.props.globalOptions.default = () => globalOptions
   }
-  Vue.component(quillEditor.name, quillEditor)
+  Vue.component(nineEditor.name, nineEditor)
 }
 
-const NineEditor = { Quill, quillEditor, install }
+const NineEditor = { Quill, nineEditor, install }
 
 export default NineEditor
-export { Quill, quillEditor, install }
+export { Quill, nineEditor, install }
