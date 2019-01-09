@@ -1,4 +1,5 @@
 # nine-editor
+一个基于quill 的vue rich editor
 
 ## Project setup
 ```
@@ -23,6 +24,11 @@ yarn run test
 ### Lints and fixes files
 ```
 yarn run lint
+```
+
+### publish
+```
+yarn run publish
 ```
 
 ### Customize configuration

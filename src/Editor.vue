@@ -8,6 +8,7 @@
 <script>
 // require sources
 import Quill from 'quill'
+
 import merge from 'lodash.merge'
 import defaultOptions from './options'
 
@@ -118,3 +119,8 @@ export default {
   }
 }
 </script>
+<style lang="less">
+  @import '~quill/dist/quill.core.css';
+  @import '~quill/dist/quill.snow.css';
+  @import '~quill/dist/quill.bubble.css';
+</style>
