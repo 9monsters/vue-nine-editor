@@ -1,6 +1,5 @@
 <template>
 <div class="editor">
-  adasdad
   <NineEditor ref="myTextEditor"
                 v-model="content"
                 :options="editorOption"
