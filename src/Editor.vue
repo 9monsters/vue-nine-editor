@@ -2,6 +2,7 @@
   <div class="editor">
     <slot name="toolbar"></slot>
     <div ref="editor"></div>
+    <div id="nq-counter"></div>
   </div>
 </template>
 
@@ -22,7 +23,6 @@ export default {
     }
   },
   props: {
-    content: String,
     value: String,
     disabled: {
       type: Boolean,
@@ -89,17 +89,6 @@ export default {
   },
   watch: {
     // Watch content change
-    content (newVal, oldVal) {
-      if (this.quill) {
-        if (newVal && newVal !== this.dataContent) {
-          this.dataContent = newVal
-          this.quill.pasteHTML(newVal)
-        } else if (!newVal) {
-          this.quill.setText('')
-        }
-      }
-    },
-    // Watch content change
     value (newVal, oldVal) {
       if (this.quill) {
         if (newVal && newVal !== this.dataContent) {
@@ -123,4 +112,18 @@ export default {
   @import '~quill/dist/quill.core.css';
   @import '~quill/dist/quill.snow.css';
   @import '~quill/dist/quill.bubble.css';
+
+  @import 'styles/color';
+
+  .editor {
+  }
+  #nq-counter {
+    border-bottom: 1px solid @sec_text_color;
+    border-right: 1px solid @sec_text_color;
+    border-left: 1px solid @sec_text_color;
+    color: #aaa;
+    padding: 5px 15px;
+    text-align: right;
+    font: icon;
+  }
 </style>

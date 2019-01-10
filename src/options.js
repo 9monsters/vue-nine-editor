@@ -1,4 +1,9 @@
 import hljs from 'highlight.js'
+import Quill from 'quill'
+
+import {
+  wordCount
+} from '@/modules'
 
 let toolbarOptions = [
   ['bold', 'italic', 'underline', 'strike'],
@@ -20,6 +25,8 @@ hljs.configure({
   languages: ['javascript', 'ruby', 'python', 'vue', 'java', 'html', 'css']
 })
 
+Quill.register('modules/counter', wordCount)
+
 export default {
   theme: 'snow',
   boundary: document.body,
@@ -29,6 +36,10 @@ export default {
       delay: 2000,
       maxStack: 500,
       userOnly: true
+    },
+    counter: {
+      container: '#counter',
+      unit: 'word'
     }
   },
   placeholder: '在此输入...',
