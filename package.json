@@ -1,5 +1,5 @@
 {
-  "name": "nine-editor",
+  "name": "vue-nine-editor",
   "version": "0.1.0",
   "description": "nine editor base on quill",
   "private": false,
@@ -15,6 +15,7 @@
     "src"
   ],
   "keywords": [
+    "vue-nine-editor",
     "nine-editor",
     "vue quill",
     "vue text editor",

@@ -1,5 +1,5 @@
 <template>
-  <div class="editor">
+  <div class="editor-container">
     <slot name="toolbar"></slot>
     <div ref="editor"></div>
     <div id="nq-counter"></div>
@@ -11,6 +11,8 @@
 import Quill from 'quill'
 
 import merge from 'lodash.merge'
+
+import { image } from './handlers'
 import defaultOptions from './options'
 
 export default {
@@ -33,10 +35,17 @@ export default {
       required: false,
       default: () => ({})
     },
-    globalOptions: {
+    uploadConfig: {
       type: Object,
       required: false,
-      default: () => ({})
+      default: () => ({
+        action: '', // 必填参数 图片上传地址
+        methods: 'POST', // 必填参数 图片上传方式
+        token: '', // 可选参数 如果需要token验证，假设你的token有存放在sessionStorage
+        name: 'img', // 必填参数 文件的参数名
+        size: 500, // 可选参数   图片大小，单位为Kb, 1M = 1024Kb
+        accept: 'image/png, image/gif, image/jpeg, image/bmp, image/x-icon' // 可选 可上传的图片格式
+      })
     }
   },
   mounted () {
@@ -51,7 +60,11 @@ export default {
     initialize () {
       if (this.$el) {
         // Options
-        this.dataOptions = merge({}, this.defaultOptions, this.globalOptions, this.options)
+        this.dataOptions = merge(this.defaultOptions, this.options)
+
+        if (this.uploadConfig.action) {
+          this.dataOptions.toolbar.handlers = [image(Quill, this.uploadConfig)]
+        }
         // Instance
         this.quill = new Quill(this.$refs.editor, this.dataOptions)
 
@@ -115,8 +128,14 @@ export default {
 
   @import 'styles/color';
 
-  .editor {
+  .editor-container {
+    .editor {
+      border-left: 1px solid @sec_text_color;
+      border-radius: 5px;
+    }
+
   }
+
   #nq-counter {
     border-bottom: 1px solid @sec_text_color;
     border-right: 1px solid @sec_text_color;

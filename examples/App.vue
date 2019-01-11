@@ -1,8 +1,9 @@
 <template>
-<div class="editor">
+<div class="main">
   <NineEditor ref="myTextEditor"
                 v-model="content"
                 :options="editorOption"
+              :uploadConfig="uploadConfig"
                 @blur="onEditorBlur($event)"
                 @focus="onEditorFocus($event)"
                 @ready="onEditorReady($event)">
@@ -22,12 +23,15 @@ export default {
     return {
       content: `<h2 class="ql-align-center"><span class="ql-font-serif">Text content loading..</span></h2>`,
       editorOption: {
-        debug: 'info',
+        debug: 'error',
         modules: {
           toolbar: [
 
           ]
         }
+      },
+      uploadConfig: {
+        action: '112233'
       }
     }
   },
